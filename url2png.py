@@ -1,34 +1,29 @@
 import datetime
 import os
-# import hashlib
-# import urllib.parse
+import hashlib
+import urllib.parse
+import requests
 
-# url = 'google.com'
-
-# apikey, secret
+url = 'google.com'
 
 
-def save_screenshot(url='google.com'):
+def save_screenshot(url2png_func):
+    # url = 'wp.pl'
+    url_screenshot = url2png_func(url, apikey, secret)
+    get_screenshot = requests.get(url_screenshot).content
     try:
         current_date_and_time = datetime.datetime.now().strftime("%d-%m-%Y_%H-%M")
         dir_path = "D:\\Python\\Moje projekty\\opensquat\\url2png\\"
         file_name = f"{url}_{current_date_and_time}.png"
         full_file_path = os.path.join(dir_path, file_name)
 
-        with open(full_file_path, 'x'):
+        with open(full_file_path, 'wb') as file:
+            file.write(get_screenshot)
             return True
     except Exception as e:
         return str(e)
 
 
-result = save_screenshot()
-if result == True:
-    print("The function was executed successfully.")
-else:
-    print(f"There was an error: {result}")
-
-
-"""
 def url2png(url, apikey, secret, fullpage=None, max_width=None,
             unique=None, viewport_width=1024, viewport_height=800):
 
@@ -47,10 +42,13 @@ def url2png(url, apikey, secret, fullpage=None, max_width=None,
     return "http://api.url2png.com/v6/{}/{}/png/?{}".format(apikey, token, query_string)
 
 
-apikey = "PXXXX"
-secret = "SXXXX"
+apikey = "P8D9EB90ADA83E3"
+secret = "S_4F5D3BCF2AF68"
+print(url2png(url, apikey, secret))
 
-print(url2png("http://google.com/", apikey, secret))
 
-
-"""
+result = save_screenshot(url2png)
+if result is True:
+    print("The function was executed successfully.")
+else:
+    print(f"There was an error: {result}")
