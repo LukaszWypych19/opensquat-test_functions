@@ -1,16 +1,27 @@
+"""
+A function named "save_screenshot" captures the screenshot
+taken by the "url2png" function and saves it under the name
+"{domain_name}+{date}+{time}" in the "screenshots" directory.
+"""
+
 import datetime
 import os
 import hashlib
 import urllib.parse
 import requests
 
+
+# Type your domain name here
 url = 'google.com'
 
 
 def save_screenshot(url2png_func):
-    # url = 'wp.pl'
+
+    # Get the content of screenshot
     url_screenshot = url2png_func(url, apikey, secret)
     get_screenshot = requests.get(url_screenshot).content
+
+    # Saving a file under a specific name
     try:
         current_date_and_time = datetime.datetime.now().strftime("%d-%m-%Y_%H-%M")
         dir_path = "D:\\Python\\Moje projekty\\opensquat\\url2png\\"
