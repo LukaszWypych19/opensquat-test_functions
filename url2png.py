@@ -12,16 +12,12 @@ import requests
 
 
 class URLScreenshot:
-    def __init__(self, url, apikey, secret):
-        self.url = url
-        self.apikey = apikey
-        self.secret = secret
-
-    # Type your domain name here
-    url = 'google.com'
+    def __init__(self):
+        self.url = "google.com"
+        self.apikey = "P8D9EB90ADA83E3"
+        self.secret = "S_4F5D3BCF2AF68"
 
     def save_screenshot(self):
-
         # Get the content of screenshot
         url_screenshot = self.url2png()
         get_screenshot = requests.get(url_screenshot).content
@@ -62,11 +58,7 @@ class URLScreenshot:
 
 
 def main():
-    url = "google.com"
-    apikey = "P8D9EB90ADA83E3"
-    secret = "S_4F5D3BCF2AF68"
-
-    screenshot = URLScreenshot(url, apikey, secret)
+    screenshot = URLScreenshot()
     result = screenshot.save_screenshot()
 
     if result is True:
