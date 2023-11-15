@@ -14,8 +14,8 @@ import requests
 class URLScreenshot:
     def __init__(self):
         self.url = "google.com"
-        self.apikey = "P8D9EB90ADA83E3"
-        self.secret = "S_4F5D3BCF2AF68"
+        self.apikey = "................."
+        self.secret = "................."
 
     def save_screenshot(self):
         # Get the content of screenshot
@@ -25,7 +25,7 @@ class URLScreenshot:
         # Saving a file under a specific name
         try:
             current_date_and_time = datetime.datetime.now().strftime("%d-%m-%Y_%H-%M")
-            dir_path = "D:\\Python\\Moje projekty\\opensquat\\url2png\\"
+            dir_path = "................................"
             file_name = f"{self.url}_{current_date_and_time}.png"
             full_file_path = os.path.join(dir_path, file_name)
 
